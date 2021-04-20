@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 02:36:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/20 03:32:47 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/20 03:39:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ func numbers_demo() {
 
 	fmt.Println(can_i_drink_in_korea(15))
 	fmt.Println(can_i_drink_in_korea(16))
+
+	fmt.Println(can_i_drink_in_korea_v2(15))
+	fmt.Println(can_i_drink_in_korea_v2(16))
+
+	fmt.Println(can_i_drink_in_italy(9))
+	fmt.Println(can_i_drink_in_italy(10))
 }
 
 func multiply(a, b int) int {
@@ -80,4 +86,26 @@ func can_i_drink_in_korea(age int) bool {
 		return false
 	}
 	return true
+}
+
+func can_i_drink_in_korea_v2(age int) bool {
+	switch korean_age := age + 2; {
+	case korean_age < 18:
+		return false
+	case korean_age >= 18:
+		return true
+	}
+	return false
+}
+
+func can_i_drink_in_italy(age int) bool {
+	switch {
+	case age < 10:
+		return false
+	case age == 10:
+		return true
+	case age > 10:
+		return true
+	}
+	return false
 }
