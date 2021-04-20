@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pointers.go                                        :+:      :+:    :+:   */
+/*   arrays.go                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 02:36:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/20 04:02:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/20 04:10:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// go run pointers.go
-// go build pointers.go && ./pointers
+// go run arrays.go
+// go build arrays.go && ./arrays
 
 package main
 
@@ -20,39 +20,30 @@ import (
 )
 
 func main() {
-	fmt.Println("=== Pointers ===")
+	fmt.Println("=== Arrays ===")
 
-	address()
+	array_demo()
 	fmt.Println("---")
-	pointers_demo()
+	slice_demo()
 }
 
-func address() {
-	a := 2
-	b := a
-	fmt.Println(a, b)
+func array_demo() {
+	names := [8]string{"gar", "mon", "bo", "zia", "fire", "walk", "with", "me"}
 
-	a = 10
-	fmt.Println(a, b)
-
-	fmt.Println(&a, &b)
+	names[1] = "laura"
+	names[3] = "palmer"
+	names[5] = "dale"
+	names[7] = "cooper"
+	fmt.Println(names)
 }
 
-func pointers_demo() {
-	a := 2
-	b := &a
-	var c *int = b
-	fmt.Println(&a, &b, &c)
-	fmt.Println(a, b, c)
-	fmt.Println(&a, b, c)
-	fmt.Println(a, *b, *c)
+func slice_demo() {
+	names := []string{"gar", "mon", "bo", "zia", "fire", "walk", "with", "me"}
 
-	a = 10
-	fmt.Println(a, *b, *c)
-
-	*b = 42
-	fmt.Println(a, *b, *c)
-
-	*c = 100
-	fmt.Println(a, *b, *c)
+	fmt.Println(names)
+	names = append(names, "laura")
+	names = append(names, "palmer")
+	names = append(names, "dale")
+	names = append(names, "cooper")
+	fmt.Println(names)
 }
