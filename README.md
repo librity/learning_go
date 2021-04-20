@@ -20,3 +20,8 @@ go help
 
 - https://marketplace.visualstudio.com/items?itemName=golang.go
 - https://github.com/golang/vscode-go/blob/master/README.md
+
+### Docs
+
+- https://golang.org/doc/articles/wiki/
+- https://go101.org/article/type-system-overview.html
