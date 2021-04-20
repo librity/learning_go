@@ -12,7 +12,10 @@
 
 package accounts
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 // BitcoinWallet not secure at all
 type BitcoinWallet struct {
@@ -33,6 +36,16 @@ func NewAccount(owner string) *account {
 	return &account
 }
 
+// Owner gets account owner
+func (a *account) Owner() string {
+	return a.owner
+}
+
+// ChangeOwner of the account
+func (a *account) ChangeOwner(new_owner string) {
+	a.owner = new_owner
+}
+
 // Balance gets account balance
 func (a account) Balance() int {
 	return a.balance
@@ -50,4 +63,12 @@ func (a *account) Withdraw(amount int) error {
 	}
 	a.balance -= amount
 	return nil
+}
+
+// String formats bank account data
+func (a account) String() string {
+	return fmt.Sprint("---\n",
+		a.owner, "'s account.\n",
+		"	BALANCE: ", a.balance, "\n",
+		"---\n")
 }
