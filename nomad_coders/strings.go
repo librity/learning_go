@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.go                                            :+:      :+:    :+:   */
+/*   strings.go                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 02:36:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/20 03:11:04 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/20 03:23:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// go run main.go
-// go build main.go && ./main
+// go run strings.go
+// go build strings.go && ./strings
 
 package main
 
@@ -24,27 +24,6 @@ var works bool = true
 
 func main() {
 	strings_demo()
-	numbers_demo()
-}
-
-func multiply(a, b int) int {
-	return (a * b)
-}
-
-func lenAndUpper(name string) (int, string) {
-	return len(name), strings.ToUpper(name)
-}
-
-func minilandu(name string) (length int, uppercase string) {
-	defer fmt.Println("DEBUG: minilandu just executed")
-
-	length = len(name)
-	uppercase = strings.ToUpper(name)
-	return
-}
-
-func repeateMe(words ...string) {
-	fmt.Println(words)
 }
 
 func strings_demo() {
@@ -59,17 +38,27 @@ func strings_demo() {
 	fmt.Println(name)
 	fmt.Println(works)
 
-	_, uppercase := lenAndUpper(first_name)
+	_, uppercase := len_and_upper(first_name)
 	fmt.Println(uppercase)
 
-	length, uppercase := minilandu(last_name)
+	length, uppercase := special_landu(last_name)
 	fmt.Println(length, uppercase)
 
-	repeateMe("gar", "mon", "bo", "zia")
+	repeate_me("gar", "mon", "bo", "zia")
 }
 
-func numbers_demo() {
-	fmt.Println("=== NUMBERS ===")
+func len_and_upper(name string) (int, string) {
+	return len(name), strings.ToUpper(name)
+}
 
-	fmt.Println(multiply(2, 3))
+func special_landu(name string) (length int, uppercase string) {
+	defer fmt.Println("DEBUG: special_landu just executed")
+
+	length = len(name)
+	uppercase = strings.ToUpper(name)
+	return
+}
+
+func repeate_me(words ...string) {
+	fmt.Println(words)
 }
