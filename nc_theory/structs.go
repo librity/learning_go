@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 10:54:12 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/20 11:07:33 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/20 11:10:45 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ func main() {
 	structs_demo()
 }
 
-type person struct {
+type Person struct {
 	name           string
 	age            int
 	favorite_foods []string
@@ -33,7 +33,7 @@ type person struct {
 
 func structs_demo() {
 	booze := []string{"jack", "jameson", "kirsch", "smirnoff"}
-	lior := person{"lior", 42, booze}
+	lior := Person{"lior", 42, booze}
 
 	fmt.Println(lior)
 	fmt.Println(lior.name)
@@ -50,7 +50,7 @@ func structs_demo() {
 		"garmonbozia", "garmonbozia", "garmonbozia", "garmonbozia",
 		"garmonbozia", "garmonbozia", "garmonbozia", "garmonbozia",
 		"garmonbozia", "garmonbozia", "garmonbozia"}
-	lior_after_rehab := person{name: "lior", age: 42, favorite_foods: mass_media}
+	lior_after_rehab := Person{name: "lior", age: 42, favorite_foods: mass_media}
 
 	fmt.Println(lior_after_rehab)
 	fmt.Println(lior_after_rehab.name)

@@ -21,6 +21,23 @@ go help
 - https://marketplace.visualstudio.com/items?itemName=golang.go
 - https://github.com/golang/vscode-go/blob/master/README.md
 
+### Changing default`$GOPATH`
+
+```bash
+echo "export GOPATH=$HOME/code/go" >> ~/.bashrc
+source ~/.bashrc
+
+go env -w GOPATH=$HOME/code/go
+```
+
+- https://github.com/golang/go/wiki/SettingGOPATH
+
+### Initializing go.mod
+
+```bash
+go mod init
+```
+
 ### Docs
 
 - https://golang.org/doc/articles/wiki/
