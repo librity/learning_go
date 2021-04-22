@@ -64,5 +64,6 @@ func (receiver *struct_type) Method(arg int) {
 
 ## Resources
 
+- https://blog.golang.org/maps
 - https://go101.org/article/type-system-overview.html
 - http://www.golangpatterns.info/object-oriented/constructors
