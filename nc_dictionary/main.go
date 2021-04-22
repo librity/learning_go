@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:52:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/22 03:04:16 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 19:27:18 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ func main() {
 	typeDemo()
 	searchDemo()
 	addDemo()
+	updateDemo()
+	deleteDemo()
 }
 
 func typeDemo() {
@@ -59,6 +61,40 @@ func addDemo() {
 	handleError("", err)
 	definition, err = dictionary.Search("pork")
 	handleError(definition, err)
+}
+
+func updateDemo() {
+	fmt.Println("=== Update a word's definition ===")
+
+	dictionary := mydict.Dictionary{}
+
+	dictionary.Add("pork", "beans")
+	definition, err := dictionary.Search("pork")
+	handleError(definition, err)
+
+	dictionary.Update("pork", "spam")
+	definition, err = dictionary.Search("pork")
+	handleError(definition, err)
+
+	err = dictionary.Update("ham", "cheese")
+	handleError("", err)
+}
+
+func deleteDemo() {
+	fmt.Println("=== Delete a word's definition ===")
+
+	dictionary := mydict.Dictionary{}
+
+	dictionary.Add("pork", "beans")
+	definition, err := dictionary.Search("pork")
+	handleError(definition, err)
+
+	dictionary.Delete("pork")
+	definition, err = dictionary.Search("pork")
+	handleError(definition, err)
+
+	err = dictionary.Delete("ham")
+	handleError("", err)
 }
 
 func handleError(result string, err error) {
