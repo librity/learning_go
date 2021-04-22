@@ -34,10 +34,11 @@ go env -w GOPATH=$HOME/code/go
 
 - https://github.com/golang/go/wiki/SettingGOPATH
 
-### Initializing go.mod
+### Using external packages
 
 ```bash
 go mod init
+go get github.com/fatih/color
 ```
 
 ## Notes
@@ -61,9 +62,23 @@ func (receiver *struct_type) Method(arg int) {
 ## Docs
 
 - https://golang.org/doc/articles/wiki/
+- https://golang.org/pkg/
+- https://golang.org/pkg/net/http/
+
+## Libs
+
+- https://github.com/fatih/color
 
 ## Resources
 
 - https://blog.golang.org/maps
 - https://go101.org/article/type-system-overview.html
 - http://www.golangpatterns.info/object-oriented/constructors
+- https://stackoverflow.com/questions/13137463/declare-a-constant-array
+- https://appdividend.com/2019/05/16/golang-constants-tutorial-with-example-constants-in-go/
+- https://golangbyexample.com/typed-untyped-constant-golang/
+- https://www.shellhacks.com/bash-colors/
+- https://golangdocs.com/concatenate-strings-in-golang
+- https://www.tutorialspoint.com/go/go_continue_statement.htm
+- https://progolang.com/how-to-write-benchmarks-in-go/
+- https://golangdocs.com/benchmark-functions-in-golang
