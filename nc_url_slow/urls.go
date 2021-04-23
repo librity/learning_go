@@ -6,13 +6,14 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 20:47:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/22 20:50:26 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 21:00:00 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// [...] declares a fixed-size array
+
 package main
 
-// [...] declares a fixed-size array
 var demoUrls = []string{
 	"https://nomadcoders.co",
 	"https://golang.org",
