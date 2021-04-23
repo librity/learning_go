@@ -68,6 +68,9 @@ func (receiver *struct_type) Method(arg int) {
 ## Libs
 
 - https://github.com/fatih/color
+- https://golangdocs.com/concatenate-strings-in-golang
+- https://golangdocs.com/benchmark-functions-in-golang
+- https://golangdocs.com/for-loop-in-golang
 
 ## Resources
 
@@ -76,9 +79,9 @@ func (receiver *struct_type) Method(arg int) {
 - http://www.golangpatterns.info/object-oriented/constructors
 - https://stackoverflow.com/questions/13137463/declare-a-constant-array
 - https://appdividend.com/2019/05/16/golang-constants-tutorial-with-example-constants-in-go/
-- https://golangbyexample.com/typed-untyped-constant-golang/
 - https://www.shellhacks.com/bash-colors/
-- https://golangdocs.com/concatenate-strings-in-golang
 - https://www.tutorialspoint.com/go/go_continue_statement.htm
 - https://progolang.com/how-to-write-benchmarks-in-go/
-- https://golangdocs.com/benchmark-functions-in-golang
+- https://golangbot.com/goroutines/
+- https://golangbyexample.com/typed-untyped-constant-golang/
+- https://golangbyexample.com/for-loop-in-golang/

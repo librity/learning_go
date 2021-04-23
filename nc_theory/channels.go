@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 02:36:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/22 21:50:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 21:54:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ func main() {
 }
 
 func hotOrNot() {
-	fmt.Println("=== Manually block for messages ===")
+	fmt.Println("\n=== Manually block for messages ===")
 
 	// [...] declares a fixed-size array
 	sexys := [...]string{"lior", "money"}
@@ -44,7 +44,7 @@ func hotOrNot() {
 }
 
 func receiveAllMessages() {
-	fmt.Println("=== Automatically block for messages ===")
+	fmt.Println("\n=== Automatically block for messages ===")
 
 	sexys := [...]string{"lior", "money", "tubers", "whiskey", "waffles", "stake"}
 	channel := make(chan string)
@@ -60,7 +60,7 @@ func receiveAllMessages() {
 }
 
 func deadlock() {
-	fmt.Println("=== Should crash here ===")
+	fmt.Println("\n=== Should crash here ===")
 
 	sexys := [...]string{"lior", "money"}
 	channel := make(chan string)

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 19:29:37 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/22 20:51:40 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 23:13:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,60 +15,55 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"net/http"
 
 	"github.com/fatih/color"
 )
 
-var errRequestFailed = errors.New("request failed")
+type HitResult struct {
+	url    string
+	online bool
+}
 
 func main() {
-	results := hitUrls(demoUrls)
-	printResults(results)
-
-	results = hitUrls(stressUrls)
-	printResults(results)
+	hitAndPrint(demoUrls)
+	hitAndPrint(stressUrls)
 }
 
-func printResults(results map[string]string) {
-	color.Blue("\n=== Results ===\n")
-	for url, result := range results {
-		printUrl(url)
-		if result == "OFFLINE" {
-			printOffline()
-			continue
-		}
-		printOnline()
-	}
-}
-
-func hitUrls(urls []string) map[string]string {
-	var results = make(map[string]string)
+func hitAndPrint(urls []string) {
+	c := make(chan HitResult)
 
 	color.Blue("\n=== Hitting Urls ===\n")
 	for _, url := range urls {
-		result := "ONLINE"
-		err := hitUrl(url)
-		if err != nil {
-			result = "OFFLINE"
-		}
-		results[url] = result
+		fmt.Println("Hitting:", url)
+		go hitUrl(c, url)
 	}
 
-	return results
+	color.Blue("\n=== Results ===\n")
+	for i := 0; i < len(urls); i++ {
+		result := <-c
+		printResult(result)
+	}
 }
 
-func hitUrl(url string) error {
-	fmt.Println("Cheking:", url)
-
+// chan<- defines a send-only channel
+func hitUrl(c chan<- HitResult, url string) {
 	resp, err := http.Get(url)
 	if err != nil || resp.StatusCode >= 400 {
-		// fmt.Println("ERROR:", err, resp.StatusCode)
-		return errRequestFailed
+		c <- HitResult{url: url, online: false}
+		return
 	}
-	return nil
+	c <- HitResult{url: url, online: true}
+}
+
+func printResult(result HitResult) {
+	printUrl(result.url)
+	if result.online {
+		printOnline()
+		return
+	}
+	printOffline()
 }
 
 func printUrl(str string) {
