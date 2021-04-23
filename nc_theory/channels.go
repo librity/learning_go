@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 02:36:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/22 21:20:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 21:50:35 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,61 @@ import (
 )
 
 func main() {
-	turboHotRodCrash()
+	hotOrNot()
+	receiveAllMessages()
+	deadlock()
 }
 
-func turboHotRodCrash() {
-	go sexyCount("lior")
-	go sexyCount("money")
-	go sexyCount("tubers")
-	go sexyCount("whiskey")
-	go sexyCount("waffles")
-	go sexyCount("stake")
-	time.Sleep(time.Second * 5)
-}
+func hotOrNot() {
+	fmt.Println("=== Manually block for messages ===")
 
-func sexyCount(person string) {
-	for i := 0; i < 10; i++ {
-		fmt.Println(person, "is sexy", i)
-		time.Sleep(time.Second)
+	// [...] declares a fixed-size array
+	sexys := [...]string{"lior", "money"}
+	channel := make(chan string)
+
+	for _, sexy := range sexys {
+		go isSexy(sexy, channel)
 	}
+
+	resultOne := <-channel
+	fmt.Println("Waiting for messages")
+	fmt.Println("Received this message:", resultOne)
+	fmt.Println("Received this message:", <-channel)
+}
+
+func receiveAllMessages() {
+	fmt.Println("=== Automatically block for messages ===")
+
+	sexys := [...]string{"lior", "money", "tubers", "whiskey", "waffles", "stake"}
+	channel := make(chan string)
+
+	for _, sexy := range sexys {
+		go isSexy(sexy, channel)
+	}
+
+	fmt.Println("Waiting for messages")
+	for i := 0; i < len(sexys); i++ {
+		fmt.Println("Received this message:", <-channel)
+	}
+}
+
+func deadlock() {
+	fmt.Println("=== Should crash here ===")
+
+	sexys := [...]string{"lior", "money"}
+	channel := make(chan string)
+
+	for _, sexy := range sexys {
+		go isSexy(sexy, channel)
+	}
+
+	result := <-channel
+	fmt.Println(result)
+	fmt.Println(<-channel)
+	fmt.Println(<-channel)
+}
+
+func isSexy(sexyThing string, channel chan string) {
+	time.Sleep(time.Second * 2)
+	channel <- sexyThing + " is very sexy!"
 }

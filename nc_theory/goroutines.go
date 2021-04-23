@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 02:36:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/22 21:19:57 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 21:21:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ func turboHotRodCrash() {
 	time.Sleep(time.Second * 5)
 }
 
-func sexyCount(person string) {
+func sexyCount(sexyThing string) {
 	for i := 0; i < 10; i++ {
-		fmt.Println(person, "is sexy", i)
+		fmt.Println(sexyThing, "is sexy", i)
 		time.Sleep(time.Second)
 	}
 }

@@ -6,11 +6,9 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 20:47:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2021/04/22 21:00:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2021/04/22 21:45:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// [...] declares a fixed-size array
 
 package main
 
