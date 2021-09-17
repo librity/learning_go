@@ -6,12 +6,11 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/librity/nc_nomadcoin/utils"
 )
 
 func echoDemo(rw http.ResponseWriter, r *http.Request) {
 	wsConn, err := upgrader.Upgrade(rw, r, nil)
-	utils.PanicError(err)
+	PanicError(err)
 
 	for {
 		fmt.Println("Awaiting message...")

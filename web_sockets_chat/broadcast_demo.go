@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/librity/nc_nomadcoin/utils"
 )
 
 var (
@@ -25,7 +24,7 @@ const messageHTML = `
 
 func broadcastDemo(rw http.ResponseWriter, r *http.Request) {
 	thisConn, err := upgrader.Upgrade(rw, r, nil)
-	utils.PanicError(err)
+	PanicError(err)
 
 	thisAddress := thisConn.RemoteAddr()
 	activeConns = append(activeConns, thisConn)

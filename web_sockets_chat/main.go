@@ -12,7 +12,7 @@ const (
 	port    = ":7000"
 	baseURL = "http://localhost" + port
 
-	staticDir   = "examples/chat"
+	staticDir   = "./static"
 	staticRoute = "/static/"
 	staticURL   = baseURL + staticRoute
 )
